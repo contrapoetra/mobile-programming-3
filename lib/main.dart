@@ -8,35 +8,64 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(),
       title: 'Flexible',
       home: Scaffold(
-        appBar: AppBar(title: Text('Flexible')),
         body: Column(
           children: [
-            _kotakUji(Colors.amber, 150, 'Normal'),
             Flexible(
-              fit: FlexFit.loose,
-              flex: 1,
-              child: _kotakUji(Colors.green, 100, 'Flexible')
+              fit: FlexFit.tight,
+              flex: 12,
+              child: viewer(),
             ),
-            Expanded(flex: 2, child: _kotakUji(Colors.blue, 250, 'Expanded')),
+            Expanded(
+              flex: 2,
+              child: controlBar(Colors.black54, 350, 'Expanded'),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Container _kotakUji(Color warna, double tinggi, String teks) {
+  Container viewer() {
+    return Container(
+      alignment: const Alignment(0.0, 0.0),
+      child: Text('Music Player Blablabla'),
+    );
+  }
+
+  Container controlBar(Color warna, double tinggi, String teks) {
     return Container(
       width: double.infinity,
       height: tinggi,
       color: warna,
+      padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
       alignment: const Alignment(0.0, 0.0),
-      child: Text(
-        teks,
-        style: const TextStyle(fontSize: 30, color: Colors.white),
-      )
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          controlButtons('shuffle', 30, 1),
+          controlButtons('skip_previous', 30, 1),
+          controlButtons('play_circle_fill', 70, 2),
+          controlButtons('skip_next', 30, 1),
+          controlButtons('repeat', 30, 1),
+        ],
+      ),
     );
+  }
+
+  Flexible controlButtons(String type, double size, int flex) {
+    IconData icon;
+    switch (type) {
+      case 'shuffle': icon = Icons.shuffle; break;
+      case 'skip_previous': icon = Icons.skip_previous; break;
+      case 'play_circle_fill': icon = Icons.play_circle_fill; break;
+      case 'skip_next': icon = Icons.skip_next; break;
+      case 'repeat': icon = Icons.repeat; break;
+      default: icon = Icons.error;
+    }
+    return Flexible(flex: flex, child: Icon(icon, size: size));
   }
 }
 
@@ -56,5 +85,4 @@ class KotakBiruJempolKecil extends StatelessWidget {
       child: Icon(Icons.thumb_up, color: Colors.white, size: 40),
     );
   }
-
 }
