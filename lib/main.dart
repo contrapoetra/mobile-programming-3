@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
             children: [
               Flexible(fit: FlexFit.tight, flex: 1, child: KotakBiruJempolKecil()),
               Flexible(fit: FlexFit.tight, flex: 3, child: KotakBiruJempolKecil()),
-              Flexible(fit: FlexFit.tight, flex: 2, child: KotakBiruJempolKecil()),
+              Flexible(fit: FlexFit.loose, flex: 2, child: KotakBiruJempolKecil()),
             ]
           )
         ),
