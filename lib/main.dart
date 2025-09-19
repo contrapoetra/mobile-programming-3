@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
               flex: 1,
               child: _kotakUji(Colors.green, 100, 'Flexible')
             ),
-            Expanded(flex: 1, child: _kotakUji(Colors.blue, 250, 'Expanded')),
+            Expanded(flex: 2, child: _kotakUji(Colors.blue, 250, 'Expanded')),
           ],
         ),
       ),
