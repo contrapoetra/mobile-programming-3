@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
           children: [
             _kotakUji(Colors.amber, 150, 'Normal'),
             Flexible(
-              fit: FlexFit.tight,
+              fit: FlexFit.loose,
               flex: 1,
               child: _kotakUji(Colors.green, 100, 'Flexible')
             ),
