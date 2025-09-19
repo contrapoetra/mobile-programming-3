@@ -11,16 +11,27 @@ class MyApp extends StatelessWidget {
       title: 'Flexible',
       home: Scaffold(
         appBar: AppBar(title: Text('Flexible')),
-        body: const Center(
-          child: Row(
-            children: [
-              Flexible(fit: FlexFit.tight, flex: 1, child: KotakBiruJempolKecil()),
-              Flexible(fit: FlexFit.tight, flex: 3, child: KotakBiruJempolKecil()),
-              Flexible(fit: FlexFit.loose, flex: 2, child: KotakBiruJempolKecil()),
-            ]
-          )
+        body: Column(
+          children: [
+            _kotakUji(Colors.amber, 150, 'Normal'),
+            _kotakUji(Colors.green, 100, 'Flexible'),
+            _kotakUji(Colors.blue, 250, 'Expanded'),
+          ],
         ),
       ),
+    );
+  }
+
+  Container _kotakUji(Color warna, double tinggi, String teks) {
+    return Container(
+      width: double.infinity,
+      height: tinggi,
+      color: warna,
+      alignment: const Alignment(0.0, 0.0),
+      child: Text(
+        teks,
+        style: const TextStyle(fontSize: 30, color: Colors.white),
+      )
     );
   }
 }
@@ -41,4 +52,5 @@ class KotakBiruJempolKecil extends StatelessWidget {
       child: Icon(Icons.thumb_up, color: Colors.white, size: 40),
     );
   }
+
 }
