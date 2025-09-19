@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
         body: const Center(
           child: Row(
             children: [
-              Flexible(flex: 1, child: KotakBiruJempolKecil()),
-              Flexible(flex: 3, child: KotakBiruJempolKecil()),
-              Flexible(flex: 2, child: KotakBiruJempolKecil()),
+              Flexible(fit: FlexFit.tight, flex: 1, child: KotakBiruJempolKecil()),
+              Flexible(fit: FlexFit.tight, flex: 3, child: KotakBiruJempolKecil()),
+              Flexible(fit: FlexFit.tight, flex: 2, child: KotakBiruJempolKecil()),
             ]
           )
         ),
